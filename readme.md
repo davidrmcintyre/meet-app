@@ -104,5 +104,20 @@ Scenario 1: Show a chart with the number of upcoming events in each city
 **When** the user wants to compare events between cities
 **Then** they should be able to access a chart with the number of upcoming events in each city
  
+## How this app uses serverless functions.
 
+**Feature 1:** Filter events by city
+For this feature, the app will use a serverless function to handle the filtering logic on the backend. When the user searches for a city, the frontend can trigger the serverless function with the search query. The function can then retrieve the list of events from the API, filter them based on the city, and return the filtered results to the frontend.
+
+**Feature 2:** Show/Hide event details
+Serverless functions are not so necessary for this feature as it primarily involves client-side interactivity. The show/hide functionality can be implemented using JavaScript and DOM manipulation on the client-side.
+
+**Feature 3:** Specify the number of events
+Similar to Feature 1, a serverless function will be used to handle the logic of fetching and filtering the events based on the specified number. The frontend can trigger the function with the desired number of events, and the function can retrieve the appropriate number of events from the database or API and return them to the frontend.
+
+**Feature 4:** Use the app when offline
+To enable offline functionality, the app will use caching as well as local storage to keep the app running offline
+
+**Feature 5:** Data Visualization
+For data visualization, the app will use serverless functions to generate the chart data. When the user requests the chart, the frontend can trigger a serverless function that fetches the necessary data from the API, perform any required calculations and returns the processed data to the frontend. 
 
