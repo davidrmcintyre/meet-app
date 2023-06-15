@@ -25,7 +25,7 @@ describe('<App /> component', () => {
       expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
   })
 });
-
+// integration tests
 describe('<App /> integration', () => {
     test('App passes "Events" state as a prop to EventList', () => {
         const AppWrapper = mount(<App />);
