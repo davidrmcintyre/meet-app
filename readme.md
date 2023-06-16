@@ -34,8 +34,8 @@ As a user I should be able to show and hide events details so that I can get inf
 
 Scenario 1: An event element is collapsed by default.
 
-**Given** the user has selected their chosen city to browse
-**When** the user received the list of events in that city
+**Given** the user has not yet selected a city
+**When** the user opens the app and performs no action
 **Then** the events should be collapsed by default
 
 Scenraio 2: User can expand an event to see its details
@@ -66,7 +66,7 @@ Scenario 1: When user hasn’t specified a number, 32 is the default number
 
 Scenario 2: User can change the number of events they want to see
 
-**Given** the user has selected the city they wish to see events in and has received the default number of events
+**Given** the user does not want to view all events
 **When** the user wishes to adjust how many events are displayed
 **Then** the user should be able to adjust how many events are displayed
 
