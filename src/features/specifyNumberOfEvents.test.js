@@ -24,7 +24,7 @@ defineFeature(feature, test => {
 
     test('User can change the number of events they want to see', ({ given, when, then }) => {
     	given('the user does not want to view all events', () => {
-            AppWrapper = await mount(<App />);
+            AppWrapper = mount(<App />);
     	});
 
     	when('the user wishes to adjust how many events are displayed', () => {

@@ -33,7 +33,7 @@ defineFeature(feature, test => {
     	});
 
     	then('The events details are displayed', () => {
-            expect(AppWrapper.find('.event .details')).toHaveLength(1);
+            expect(AppWrapper.find('.event .event-details')).toHaveLength(1);
     	});
     });
 
@@ -50,7 +50,7 @@ defineFeature(feature, test => {
     	});
 
     	then('the event will collapse and hide the details', () => {
-            expect(AppWrapper.find('.event .details')).toHaveLength(0);
+            expect(AppWrapper.find('.event .event-details')).toHaveLength(0);
     	});
     });
 }); 
