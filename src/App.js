@@ -3,9 +3,10 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { getEvents, extractLocations } from './api';
+import { getEvents, extractLocations, checkToken, getAccessToken} from './api';
 import './nprogress.css';
 import { WarningAlert } from './Alert';
+import WelcomeScreen from './WelcomeScreen';
 
 class App extends Component {
   state = {
@@ -14,6 +15,7 @@ class App extends Component {
     eventCount: 32,
     currentLocation: 'all',
     errorText: '',
+    showWelcomeScreen: undefined,
   }
 
   componentDidMount() {
@@ -71,6 +73,8 @@ class App extends Component {
 }
 
   render() {
+    if (this.state.showWelcomeScreen === undefined)
+      return <div className="App" />;
     const { events } = this.state;
     const eventsToShow = events.length > 32 ? events.slice(0, this.state.numberOfEvents) : events;
     return (
@@ -79,6 +83,7 @@ class App extends Component {
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents}/>
         <EventList events={eventsToShow} />
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken(); }} />
       </div>
     );
   }
