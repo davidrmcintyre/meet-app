@@ -1,7 +1,7 @@
 // src/CitySearch.js
 
 import React, { Component } from 'react';
-import { InfoAlert } from './Alert';
+import { InfoAlert } from './alert';
 
 class CitySearch extends Component {
     state = {
