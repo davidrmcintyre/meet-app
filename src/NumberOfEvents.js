@@ -5,6 +5,7 @@ class NumberOfEvents extends Component {
 
     state = {
         query: '32',
+        errorText: "",
     }
 
     handleInputChanged = (event) => {
