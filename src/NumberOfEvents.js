@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { ErrorAlert } from './Alert';
 
 class NumberOfEvents extends Component {
-
-    state = {
-        query: '32',
-        errorText: "",
-    }
+  constructor() {
+    super();
+    this.state = {
+      query: 32,
+      errorText: "",
+    };
+  }
 
     handleInputChanged = (event) => {
       const value = event.target.value;

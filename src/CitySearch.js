@@ -4,12 +4,15 @@ import React, { Component } from 'react';
 import { InfoAlert } from './Alert';
 
 class CitySearch extends Component {
-    state = {
-        query: '',
+    constructor() {
+      super();
+      this.state = {
+        query: "",
         suggestions: [],
         showSuggestions: undefined,
         infoText: "",
-      }
+      };
+    }
 
       handleInputChanged = (event) => {
         const value = event.target.value;
