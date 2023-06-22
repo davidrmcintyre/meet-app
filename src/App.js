@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   offlineWarning = () => {
-    if (!navigator.online){
+    if (!navigator.onLine){
       this.setState({
         errorText: 'You are offline, information may not be up to date.'
       })
@@ -82,20 +82,22 @@ class App extends Component {
       const eventsToShow = locationEvents.slice(0, eventCount);
       this.setState({
         events: eventsToShow,
-        numberOfEvents: eventCount,
+        eventCount: eventCount,
       });
     });
   }
 }
 
-   getData = () => {
-    const {locations, events} = this.state;
-    const data = locations.map((location)=>{
-      const number = events.filter((event) => event.location === location).length
-      const city = location.split(', ').shift()
-      return {city, number};
-    })
-    return data;
+  getData = () => {
+  const { locations, events } = this.state;
+  const data = locations.map((location) => {
+    const number = events.filter(
+      (event) => event.location === location
+    ).length;
+    const city = location.split(', ').shift();
+    return { city, number };
+  });
+  return data;
   };
 
   render() {
