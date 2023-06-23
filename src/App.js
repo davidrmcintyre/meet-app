@@ -7,6 +7,7 @@ import { getEvents, extractLocations, checkToken, getAccessToken} from './api';
 import './nprogress.css';
 import { WarningAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
+import EventGenre from './EventGenre';
 import {
   ScatterChart,
   Scatter,
@@ -54,7 +55,6 @@ class App extends Component {
     }
   }
  
-
   componentWillUnmount() {
     this.mounted = false;
   }
@@ -107,24 +107,24 @@ class App extends Component {
     const eventsToShow = events.length > 32 ? events.slice(0, this.state.numberOfEvents) : events;
     return (
       <div className='App'>
+        <h1>CityCrawler App</h1>
+        <h4>Select your nearest city:</h4>
         <WarningAlert text={this.state.errorText} />
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents}/>
+        <div className='data-vis-wrapper'>
+        <EventGenre events={this.state.events} />
         <h4>Events in each city</h4>
-
-         <ScatterChart
-          width={800}
-          height={400}
-          margin={{
-            top: 20, right: 20, bottom: 20, left: 20,
-          }}
-        >
+          <ResponsiveContainer height={400}>
+          <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20, }} >
           <CartesianGrid />
           <XAxis type="category" dataKey="city" name="city" />
           <YAxis type="number" dataKey="number" name="number of events" />
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
           <Scatter data={this.getData()} fill="#8884d8" />
-        </ScatterChart>
+          </ScatterChart>
+          </ResponsiveContainer>
+        </div>
         <EventList events={eventsToShow} />
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken(); }} />
       </div>
