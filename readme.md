@@ -1,5 +1,7 @@
 # CityCrawler (Meet-App)
 
+![Desktop App View](/img/desktopappview.jpg)
+
 ## Features, User Stories & BDD Scenarios
 
 ### Feature 1: Filter events by city.
