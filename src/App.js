@@ -107,7 +107,6 @@ class App extends Component {
     const eventsToShow = events.length > 32 ? events.slice(0, this.state.numberOfEvents) : events;
     return (
       <div className='App'>
-        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken(); }} />
         <h1>CityCrawler App</h1>
         <h4>Select your nearest city:</h4>
         <WarningAlert text={this.state.errorText} />
@@ -127,6 +126,7 @@ class App extends Component {
           </ResponsiveContainer>
         </div>
         <EventList events={eventsToShow} />
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken(); }} />
       </div>
     );
   }
